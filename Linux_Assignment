@@ -1,0 +1,145 @@
+# 1. Creating and Renaming Files/Directories
+Create a directory named test_dir using mkdir.
+Inside test_dir, create an empty file called example.txt.
+Rename example.txt to renamed_example.txt using mv -
+
+kk_lab_user_846120@instance-20250617-183656:~$ mkdir test_dir
+kk_lab_user_846120@instance-20250617-183656:~$ cd test_dir
+kk_lab_user_846120@instance-20250617-183656:~/test_dir$ touch example.txt
+kk_lab_user_846120@instance-20250617-183656:~/test_dir$ ls
+example.txt
+kk_lab_user_846120@instance-20250617-183656:~/test_dir$ mv example.txt renamed_example.txt
+kk_lab_user_846120@instance-20250617-183656:~/test_dir$ ls
+renamed_example.txt
+
+2. Viewing File Contents
+Use cat to display the contents of /etc/passwd.
+Display only the first 5 lines of /etc/passwd using head.
+Display only the last 5 lines of /etc/passwd using tail.
+
+kk_lab_user_846120@instance-20250617-183656:~/test_dir$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+_apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+Debian-exim:x:100:102::/var/spool/exim4:/usr/sbin/nologin
+uuidd:x:101:103::/run/uuidd:/usr/sbin/nologin
+messagebus:x:102:104::/nonexistent:/usr/sbin/nologin
+systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+systemd-timesync:x:997:997:systemd Time Synchronization:/:/usr/sbin/nologin
+systemd-resolve:x:996:996:systemd Resolver:/:/usr/sbin/nologin
+tcpdump:x:103:109::/nonexistent:/usr/sbin/nologin
+sshd:x:104:65534::/run/sshd:/usr/sbin/nologin
+polkitd:x:995:995:polkit:/nonexistent:/usr/sbin/nologin
+kk_lab_user_846120:x:1000:1001::/home/kk_lab_user_846120:/bin/bash
+
+# Display only the first 5 lines of /etc/passwd using head.
+
+kk_lab_user_846120@instance-20250617-183656:~/test_dir$ head /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+
+# Display only the last 5 lines of /etc/passwd using tail.
+
+kk_lab_user_846120@instance-20250617-183656:~/test_dir$ tail /etc/passwd
+Debian-exim:x:100:102::/var/spool/exim4:/usr/sbin/nologin
+uuidd:x:101:103::/run/uuidd:/usr/sbin/nologin
+messagebus:x:102:104::/nonexistent:/usr/sbin/nologin
+systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+systemd-timesync:x:997:997:systemd Time Synchronization:/:/usr/sbin/nologin
+systemd-resolve:x:996:996:systemd Resolver:/:/usr/sbin/nologin
+tcpdump:x:103:109::/nonexistent:/usr/sbin/nologin
+sshd:x:104:65534::/run/sshd:/usr/sbin/nologin
+polkitd:x:995:995:polkit:/nonexistent:/usr/sbin/nologin
+kk_lab_user_846120:x:1000:1001::/home/kk_lab_user_846120:/bin/bash
+kk_lab_user_846120@instance-20250617-183656:~/test_dir$ 
+
+3.Searching for Patterns
+Use grep to find all lines containing the word "root" in /etc/passwd.
+
+kk_lab_user_846120@instance-20250617-183656:~/test_dir$ cat /etc/passwd | grep root
+root:x:0:0:root:/root:/bin/bash
+kk_lab_user_846120@instance-20250617-183656:~/test_dir$ 
+
+4. Zipping and Unzipping
+
+#Compress the test_dir directory into a file named test_dir.zip using zip.
+
+kk_lab_user_846120@instance-20250617-183656:~$ zip -r test_dir.zip test_dir
+  adding: test_dir/ (stored 0%)
+  adding: test_dir/renamed_example.txt (stored 0%)
+kk_lab_user_846120@instance-20250617-183656:~$ ls
+test_dir  test_dir.zip
+kk_lab_user_846120@instance-20250617-183656:~$ 
+
+# Unzip test_dir.zip into a new directory named unzipped_dir.
+
+kk_lab_user_846120@instance-20250617-183656:~$ unzip test_dir.zip -d unzipped_dir
+Archive:  test_dir.zip
+   creating: unzipped_dir/test_dir/
+ extracting: unzipped_dir/test_dir/renamed_example.txt  
+kk_lab_user_846120@instance-20250617-183656:~$ ls
+test_dir  test_dir.zip  unzipped_dir
+kk_lab_user_846120@instance-20250617-183656:~$ 
+
+5. Downloading Files
+
+kk_lab_user_846120@instance-20250617-183656:~$ wget https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
+--2025-06-17 19:20:44--  https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
+Resolving www.w3.org (www.w3.org)... 104.18.23.19, 104.18.22.19, 2606:4700::6812:1713, ...
+Connecting to www.w3.org (www.w3.org)|104.18.23.19|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 13264 (13K) [application/pdf]
+Saving to: ‘dummy.pdf’
+
+dummy.pdf                                100%[===============================================================================>]  12.95K  --.-KB/s    in 0s      
+
+2025-06-17 19:20:44 (62.0 MB/s) - ‘dummy.pdf’ saved [13264/13264]
+
+kk_lab_user_846120@instance-20250617-183656:~$ ls
+dummy.pdf  file.zip  test_dir  test_dir.zip  unzipped_dir
+
+# URL in Assignment Guide was having error hence changed the URL and downloaded Dummy file
+
+
+6. Changing Permissions
+#Create a file named secure.txt and change its permissions to read-only for everyone using chmod.
+
+kk_lab_user_846120@instance-20250617-183656:~$ touch  secure.txt
+kk_lab_user_846120@instance-20250617-183656:~$ ls -l secure.txt 
+-rw-r--r-- 1 kk_lab_user_846120 kk_lab_user_846120 0 Jun 17 19:23 secure.txt
+kk_lab_user_846120@instance-20250617-183656:~$ chmod 444 secure.txt 
+kk_lab_user_846120@instance-20250617-183656:~$ ls -l secure.txt 
+-r--r--r-- 1 kk_lab_user_846120 kk_lab_user_846120 0 Jun 17 19:23 secure.txt
+kk_lab_user_846120@instance-20250617-183656:~$ 
+
+
+7. Working with Environment Variables
+Use export to set a new environment variable called MY_VAR with the value "Hello, Linux!".
+
+kk_lab_user_846120@instance-20250617-183656:~$ export MY_VAR="Hello, Linux!"
+kk_lab_user_846120@instance-20250617-183656:~$ echo $MY_VAR
+Hello, Linux!
+kk_lab_user_846120@instance-20250617-183656:~$ 
